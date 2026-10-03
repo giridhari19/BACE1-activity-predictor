@@ -12,7 +12,7 @@ def predict_activity(smiles):
     mol = Chem.MolFromSmiles(smiles)
 
     if mol is None:
-        return None, None
+        return None, None, None, None, None, None
 
     fp = morgan_generator.GetFingerprintAsNumPy(mol).reshape(1, -1)
 
@@ -43,4 +43,18 @@ if st.button('Predict'):
       (lr_pred, lr_prob, lr_iprob,
         rf_pred, rf_prob, rf_iprob
       )=results
-        
+        with col1:
+                st.subheader("Logistic Regression")
+                st.write(
+                    f"Prediction: {'Active' if lr_pred == 1 else 'Inactive'}"
+                )
+                st.write(f"Active probability: {lr_prob:.2%}")
+                st.write(f"Inactive probability: {lr_iprob:.2%}")
+    
+            with col2:
+                st.subheader("Random Forest")
+                st.write(
+                    f"Prediction: {'Active' if rf_pred == 1 else 'Inactive'}"
+                )
+                st.write(f"Active probability: {rf_prob:.2%}")
+                st.write(f"Inactive probability: {rf_iprob:.2%}")
