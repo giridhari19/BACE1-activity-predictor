@@ -31,26 +31,30 @@ def predict_activity(smiles):
 st.title('BACE Activity Predictor')
 st.write('Predict BACE activity using Logistic Regression and Random Forest Classifier using Morgan Fingerprints.')
 smiles=st.text_input('SMILES', placeholder="Enter a molecular SMILES string")
-if st.button('Predict'):
-  if not smiles:
-    st.warning('Please enter a SMILES string')
-  else:
-    results=predict_activity(smiles)
-
-    if results[0] is None:
-      st.error("Invalid SMILES string. Please check it")
+if st.button("Predict"):
+    if not smiles:
+        st.warning("Please enter a SMILES string.")
     else:
-      (lr_pred, lr_prob, lr_iprob,
-        rf_pred, rf_prob, rf_iprob
-      )=results
-        with col1:
+        results = predict_activity(smiles)
+
+        if results[0] is None:
+            st.error("Invalid SMILES. Please check the molecular structure.")
+        else:
+            (
+                lr_pred, lr_prob, lr_iprob,
+                rf_pred, rf_prob, rf_iprob
+            ) = results
+
+            col1, col2 = st.columns(2)
+
+            with col1:
                 st.subheader("Logistic Regression")
                 st.write(
                     f"Prediction: {'Active' if lr_pred == 1 else 'Inactive'}"
                 )
                 st.write(f"Active probability: {lr_prob:.2%}")
                 st.write(f"Inactive probability: {lr_iprob:.2%}")
-    
+
             with col2:
                 st.subheader("Random Forest")
                 st.write(
