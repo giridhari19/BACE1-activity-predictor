@@ -7,7 +7,6 @@ st.set_page_config(
     page_icon="🧬",
     layout="centered"
 )
-
 lr = joblib.load("lr_morgan.joblib")
 rf = joblib.load("rf_morgan.joblib")
 
@@ -152,7 +151,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.markdown("**Dataset**")
-    st.write("[BACE](https://huggingface.co/datasets/scikit-fingerprints/MoleculeNet_BACE)")
+    st.write("[MoleculeNet BACE](https://huggingface.co/datasets/scikit-fingerprints/MoleculeNet_BACE)")
 
 with col2:
     st.markdown("**Representation**")
