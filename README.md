@@ -1,9 +1,9 @@
 # BACE Activity Prediction Using Molecular Fingerprints and Machine Learning
 
-[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![RDKit](https://img.shields.io/badge/RDKit-Cheminformatics-1f77b4)](https://www.rdkit.org/)
-[![scikit--learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![scikit--learn](https://img.shields.io/badge/scikit--learn-ML%20Training-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App%20Deployment-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
 
 A machine-learning project investigating how **molecular representation** and **model architecture** affect the prediction of BACE activity.
 
