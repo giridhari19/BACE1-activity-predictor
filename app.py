@@ -2,22 +2,11 @@ import streamlit as st
 import joblib
 from rdkit import Chem
 from rdkit.Chem import rdFingerprintGenerator
-
-
-# -----------------------------
-# Page configuration
-# -----------------------------
-
 st.set_page_config(
     page_title="BACE Activity Predictor",
     page_icon="🧬",
     layout="centered"
 )
-
-
-# -----------------------------
-# Load models
-# -----------------------------
 
 lr = joblib.load("lr_morgan.joblib")
 rf = joblib.load("rf_morgan.joblib")
@@ -26,11 +15,6 @@ morgan_generator = rdFingerprintGenerator.GetMorganGenerator(
     radius=2,
     fpSize=2048
 )
-
-
-# -----------------------------
-# Prediction function
-# -----------------------------
 
 def predict_activity(smiles):
     mol = Chem.MolFromSmiles(smiles)
@@ -54,29 +38,21 @@ def predict_activity(smiles):
     )
 
 
-# -----------------------------
-# Header
-# -----------------------------
-
 st.title("BACE Activity Predictor")
 
 st.markdown(
     "Predict BACE activity from a molecular **SMILES** representation "
     "using two machine-learning models trained on Morgan fingerprints."
 )
-
+st.markdown(
+    "Refer to the Github Page for detailed report on the project: [Github Repo](https://github.com/giridhari19/BACE1-activity-predictor)"
+)
 st.caption(
     "Predictions are model outputs and do not constitute experimental "
     "confirmation of biological activity."
 )
 
-
-# -----------------------------
-# Input
-# -----------------------------
-
 st.subheader("Molecule")
-
 smiles = st.text_area(
     "SMILES",
     placeholder="Enter a molecular SMILES string...",
@@ -84,7 +60,7 @@ smiles = st.text_area(
     label_visibility="collapsed"
 )
 
-st.caption(
+st.text(
     "Example: CC(C)Cc1ccc(cc1)[C@@H](C)C(=O)O"
 )
 
@@ -94,53 +70,34 @@ predict_button = st.button(
     use_container_width=True
 )
 
-
-# -----------------------------
-# Prediction and results
-# -----------------------------
-
 if predict_button:
 
     if not smiles.strip():
         st.warning("Please enter a SMILES string.")
-
     else:
         results = predict_activity(smiles.strip())
 
         if results[0] is None:
-            st.error(
-                "Invalid SMILES. Please check the molecular structure "
-                "and try again."
-            )
-
+            st.error("Invalid SMILES. Please check the molecular structure and try again.")
         else:
-            (
-                lr_pred, lr_prob, lr_iprob,
-                rf_pred, rf_prob, rf_iprob
-            ) = results
-
+            (lr_pred, lr_prob, lr_iprob,rf_pred, rf_prob, rf_iprob) = results
             st.divider()
-
             st.subheader("Prediction Results")
-
             col1, col2 = st.columns(2)
-
             # Logistic Regression
             with col1:
                 st.markdown("### Logistic Regression")
-
                 if lr_pred == 1:
                     st.success("ACTIVE")
                 else:
                     st.info("INACTIVE")
-
                 st.metric(
                     "Active probability",
                     f"{lr_prob:.2%}"
                 )
-
-                st.caption(
-                    f"Inactive probability: {lr_iprob:.2%}"
+                st.metric(
+                    "Inactive probability", 
+                    f"{lr_iprob:.2%}"
                 )
 
             # Random Forest
@@ -157,14 +114,10 @@ if predict_button:
                     f"{rf_prob:.2%}"
                 )
 
-                st.caption(
-                    f"Inactive probability: {rf_iprob:.2%}"
+                st.metric(
+                    f"Inactive probability", 
+                    f"{rf_iprob:.2%}"
                 )
-
-
-# -----------------------------
-# Methodology
-# -----------------------------
 
 st.divider()
 
@@ -174,7 +127,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.markdown("**Dataset**")
-    st.write("BACE")
+    st.write("[BACE](https://huggingface.co/datasets/scikit-fingerprints/MoleculeNet_BACE)")
 
 with col2:
     st.markdown("**Representation**")
@@ -183,8 +136,3 @@ with col2:
 with col3:
     st.markdown("**Models**")
     st.write("Logistic Regression\nRandom Forest")
-
-st.caption(
-    "Morgan fingerprints were generated using radius 2 and 2048 bits. "
-    "The models were trained using the BACE dataset."
-)
