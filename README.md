@@ -1,5 +1,10 @@
 # BACE Activity Prediction Using Molecular Fingerprints and Machine Learning
 
+[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![RDKit](https://img.shields.io/badge/RDKit-Cheminformatics-1f77b4)](https://www.rdkit.org/)
+[![scikit--learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+
 A machine-learning project investigating how **molecular representation** and **model architecture** affect the prediction of BACE activity.
 
 The project compares molecular descriptors and Morgan fingerprints using Logistic Regression and Random Forest classifiers, followed by cross-validation and held-out test evaluation. A Streamlit application was developed to demonstrate the trained fingerprint-based models on new SMILES inputs.
