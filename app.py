@@ -60,9 +60,34 @@ smiles = st.text_area(
     label_visibility="collapsed"
 )
 
-st.text(
-    "Example: CC(C)Cc1ccc(cc1)[C@@H](C)C(=O)O"
-)
+st.caption("Try an example molecule")
+row1 = st.columns(2)
+with row1[0]:
+    st.markdown("**Example 1**")
+    st.code(
+        "O1CC[C@@H](NC(=O)[C@@H](Cc2cc3cc(ccc3nc2N)-c2ccccc2C)C)CC1(C)C",
+        language=None
+    )
+with row1[1]:
+    st.markdown("**Example 2**")
+    st.code(
+        "O(C)c1ccc(cc1C)[C@@]1(N=C(N)N(C)C1=O)C12CC3CC(C1)CC(C2)C3",
+        language=None
+    )
+row2 = st.columns(2)
+with row2[0]:
+    st.markdown("**Example 3**")
+    st.code(
+        "n1ccc2c(cccc2)c1N",
+        language=None
+    )
+with row2[1]:
+    st.markdown("**Example 4**")
+    st.code(
+        "Oc1ccc(cc1CC)CC[NH3+]",
+        language=None
+    )
+
 
 predict_button = st.button(
     "Predict Activity",
