@@ -59,29 +59,29 @@ smiles = st.text_area(
     label_visibility="collapsed"
 )
 
-st.caption("Try an example molecule")
+st.text("Try an example molecule. Click the copy button")
 row1 = st.columns(2)
 with row1[0]:
-    st.markdown("**Example 1**")
+    st.markdown("**Example 1 (Active)**")
     st.code(
         "O1CC[C@@H](NC(=O)[C@@H](Cc2cc3cc(ccc3nc2N)-c2ccccc2C)C)CC1(C)C",
         language=None
     )
 with row1[1]:
-    st.markdown("**Example 2**")
+    st.markdown("**Example 2 (Inactive)**")
     st.code(
         "O(C)c1ccc(cc1C)[C@@]1(N=C(N)N(C)C1=O)C12CC3CC(C1)CC(C2)C3",
         language=None
     )
 row2 = st.columns(2)
 with row2[0]:
-    st.markdown("**Example 3**")
+    st.markdown("**Example 3 (Inactive)**")
     st.code(
         "n1ccc2c(cccc2)c1N",
         language=None
     )
 with row2[1]:
-    st.markdown("**Example 4**")
+    st.markdown("**Example 4 (Active)**")
     st.code(
         "Oc1ccc(cc1CC)CC[NH3+]",
         language=None
