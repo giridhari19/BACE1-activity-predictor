@@ -1,4 +1,4 @@
-# BACE Activity Prediction Using Molecular Fingerprints and Machine Learning
+# Comparative Machine Learning for BACE Activity Prediction: Evaluating Molecular Representations and Model Architectures
 
 [![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![RDKit](https://img.shields.io/badge/RDKit-Cheminformatics-1f77b4)](https://www.rdkit.org/)
@@ -9,7 +9,7 @@ A machine-learning project investigating how **molecular representation** and **
 
 The project compares molecular descriptors and Morgan fingerprints using Logistic Regression and Random Forest classifiers, followed by cross-validation and held-out test evaluation. A Streamlit application was developed to demonstrate the trained fingerprint-based models on new SMILES inputs.
 
-## 🚀 Live App
+##  Live App
 
 [![Streamlit App](https://img.shields.io/badge/Live%20App-Streamlit-FF4B4B?logo=streamlit\&logoColor=white)](https://bace1-activity-predictor.streamlit.app/)
 
@@ -209,7 +209,7 @@ The application is intended as a demonstration of model deployment and should no
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 * **Python**
 * **RDKit** – molecular processing, descriptors and Morgan fingerprints
@@ -222,12 +222,12 @@ The application is intended as a demonstration of model deployment and should no
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```text
 BACE-QSAR/
 │
-├── app.py
+├── app.py              
 ├── requirements.txt
 │
 ├── lr_morgan.joblib
@@ -235,10 +235,7 @@ BACE-QSAR/
 │
 ├── README.md
 │
-└── docs/
-    ├── methodology.md
-    ├── results.md
-    └── images/
+└── cdd_capstone.ipynb
 ```
 
 ---
@@ -293,7 +290,7 @@ The project also reinforced the importance of distinguishing **model performance
 
 ---
 
-## 📚References
+## References
 
 1. [MoleculeNet: A Benchmark for Molecular Machine Learning](https://pubs.acs.org/doi/10.1021/acs.jmedchem.7b00794)
 2. [BACE dataset – MoleculeNet](https://deepchem.readthedocs.io/en/latest/datasets/moleculenet.html)
